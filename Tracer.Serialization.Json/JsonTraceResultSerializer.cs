@@ -22,11 +22,7 @@ public class JsonTraceResultSerializer : ITraceResultSerializer
             to.Write(Encoding.ASCII.GetBytes(json));
             to.Flush();
         }
-        catch (InvalidOperationException e)
-        {
-            Console.Error.WriteLine(e.Message);
-        }
-        catch (IOException e)
+        catch (Exception e)
         {
             Console.Error.WriteLine(e.Message);
         }

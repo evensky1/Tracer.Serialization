@@ -21,11 +21,7 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
             xmlSerializer.Serialize(to, traceResult);
             to.Flush();
         }
-        catch (InvalidOperationException e)
-        {
-            Console.Error.WriteLine(e.Message);
-        }
-        catch (IOException e)
+        catch (Exception e)
         {
             Console.Error.WriteLine(e.Message);
         }
