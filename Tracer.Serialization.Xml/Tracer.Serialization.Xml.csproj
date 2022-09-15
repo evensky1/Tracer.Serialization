@@ -10,4 +10,8 @@
       <ProjectReference Include="..\..\Tracer\Tracer.Serialization.Abstractions\Tracer.Serialization.Abstractions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="XSerializer" Version="0.4.4" />
+    </ItemGroup>
+
 </Project>

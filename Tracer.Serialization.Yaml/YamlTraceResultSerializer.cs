@@ -25,6 +25,7 @@ public class YamlTraceResultSerializer : ITraceResultSerializer
         {
             var yaml = serializer.Serialize(traceResult);
             to.Write(Encoding.ASCII.GetBytes(yaml));
+            to.Flush();
         }
         catch (InvalidOperationException e)
         {

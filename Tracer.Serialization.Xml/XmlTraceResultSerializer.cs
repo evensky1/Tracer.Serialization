@@ -1,6 +1,6 @@
 ﻿using Tracer.Core;
 using Tracer.Serialization.Abstractions;
-using System.Xml.Serialization;
+using XSerializer;
 
 namespace Tracer.Serialization.Xml;
 
@@ -17,10 +17,15 @@ public class XmlTraceResultSerializer : ITraceResultSerializer
     {
         try
         {
-            var xmlSerializer = new XmlSerializer(typeof(TraceResult));
+            var xmlSerializer = XmlSerializer.Create(typeof(TraceResult));
             xmlSerializer.Serialize(to, traceResult);
+            to.Flush();
         }
         catch (InvalidOperationException e)
+        {
+            Console.Error.WriteLine(e.Message);
+        }
+        catch (IOException e)
         {
             Console.Error.WriteLine(e.Message);
         }

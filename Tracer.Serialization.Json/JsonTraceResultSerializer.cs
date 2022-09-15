@@ -19,8 +19,8 @@ public class JsonTraceResultSerializer : ITraceResultSerializer
         try
         {
             var json = JsonSerializer.Serialize(traceResult);
-
             to.Write(Encoding.ASCII.GetBytes(json));
+            to.Flush();
         }
         catch (InvalidOperationException e)
         {
